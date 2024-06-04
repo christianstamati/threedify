@@ -1,7 +1,7 @@
-import React from "react";
+import { ReactElement } from "react";
 
 export type NavigationItem = {
-  icon: React.ReactNode;
+  icon: ReactElement;
   link: string;
   name: string;
 };

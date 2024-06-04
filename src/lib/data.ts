@@ -1,18 +1,14 @@
-import { Home, Box, LucideProps } from "lucide-react";
-import React, { ReactNode } from "react";
-
-function createIcon(type: React.FunctionComponent<LucideProps>) {
-  return React.createElement(type, { className: "h-4 w-4" }) as ReactNode;
-}
+import { Home, Box } from "lucide-react";
+import React from "react";
 
 export const navigation = [
   {
-    icon: createIcon(Home),
+    icon: React.createElement(Home),
     link: "/app",
     name: "Dashboard",
   },
   {
-    icon: createIcon(Box),
+    icon: React.createElement(Box),
     link: "/app/projects",
     name: "Projects",
   },
