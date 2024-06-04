@@ -1,10 +1,13 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-export default function LoginButton() {
+import { ReactNode } from "react";
+export default function LoginButton({ children }: { children?: ReactNode }) {
   return (
     <Link href={"/api/auth/signin?callbackUrl=/dashboard"}>
-      <Button className="mt-4">Login</Button>
+      <Button size={"lg"} className="mt-4">
+        {children}
+      </Button>
     </Link>
   );
 }
