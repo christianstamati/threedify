@@ -1,18 +1,17 @@
-export type TodoDto = {
+export type ProjectDto = {
   id: string;
   userId: string;
   name: string;
-  done: boolean;
   createdAt: string;
 };
 
-export type CreateTodoDto = {
+export type CreateProjectDto = {
   name: string;
   done: boolean;
   userId: string;
 };
 
-export type UpdateTodoDto = {
+export type UpdateProjectDto = {
   name?: string;
   done?: boolean;
 };
