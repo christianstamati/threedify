@@ -3,15 +3,17 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Home, Package2, PanelLeft, Settings } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { navigation } from "@/lib/data";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 export function SheetNav() {
   const pathname = usePathname();
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button size="icon" variant="outline" className="sm:hidden">
           <PanelLeft className="h-5 w-5" />
@@ -31,6 +33,7 @@ export function SheetNav() {
             <Link
               key={index}
               href={item.link}
+              onClick={() => setOpen(false)}
               className={cn(
                 "flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground",
                 { "text-foreground": pathname === item.link },
@@ -42,6 +45,7 @@ export function SheetNav() {
           ))}
           <Link
             href="/dashboard/settings"
+            onClick={() => setOpen(false)}
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <Settings className="h-5 w-5" />

@@ -67,7 +67,8 @@ export default function Projects() {
             <CardHeader>
               <CardTitle>Projects</CardTitle>
               <CardDescription>
-                Manage your projects and share them with your friends.
+                Manage your configuration projects and share them with your
+                friends.
               </CardDescription>
             </CardHeader>
             <CardContent>
