@@ -4,12 +4,12 @@ import React from "react";
 export const navigation = [
   {
     icon: React.createElement(Home),
-    link: "/app",
+    link: "/dashboard",
     name: "Dashboard",
   },
   {
     icon: React.createElement(Box),
-    link: "/app/projects",
+    link: "/dashboard/projects",
     name: "Projects",
   },
 ] as const;

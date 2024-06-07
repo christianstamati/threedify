@@ -9,29 +9,7 @@ import {
 import Link from "next/link";
 import { navigation } from "@/lib/data";
 import { usePathname } from "next/navigation";
-
-function SideBarItem({
-  name,
-  icon,
-}: {
-  name: string;
-  icon: React.ReactElement;
-}) {
-  return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <Link
-          href="#"
-          className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-        >
-          {React.cloneElement(icon, { className: "h-5 w-5" })}
-          <span className="sr-only">{name}</span>
-        </Link>
-      </TooltipTrigger>
-      <TooltipContent side="right">{name}</TooltipContent>
-    </Tooltip>
-  );
-}
+import { clsx } from "clsx";
 
 export function SideBarNav() {
   const pathname = usePathname();
@@ -40,8 +18,14 @@ export function SideBarNav() {
     <Tooltip key={index}>
       <TooltipTrigger asChild>
         <Link
-          href="#"
-          className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+          href={item.link}
+          className={clsx(
+            "flex h-9 w-9 items-center justify-center rounded-lg text-accent-foreground  transition-colors hover:text-foreground md:h-8 md:w-8",
+            {
+              "bg-accent": pathname === item.link,
+              "text-muted-foreground": pathname !== item.link,
+            },
+          )}
         >
           {React.cloneElement(item.icon, { className: "h-5 w-5" })}
           <span className="sr-only">{item.name}</span>
