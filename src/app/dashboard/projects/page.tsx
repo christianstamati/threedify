@@ -13,15 +13,14 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ProjectTable } from "@/components/project-table";
+import { ProjectTable } from "@/app/dashboard/projects/project-table";
+import { getAllProjectsPersistence } from "@/server/data-access/project/get-all-projects.persistence";
 
-export default function Projects() {
-  // fetch the projects
-
+export default async function Projects() {
+  const projects = await getAllProjectsPersistence();
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
       <Tabs defaultValue="all">
@@ -72,13 +71,8 @@ export default function Projects() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <ProjectTable />
+              <ProjectTable projects={projects} />
             </CardContent>
-            <CardFooter>
-              <div className="text-xs text-muted-foreground">
-                Showing <strong>1-10</strong> of <strong>32</strong> products
-              </div>
-            </CardFooter>
           </Card>
         </TabsContent>
       </Tabs>

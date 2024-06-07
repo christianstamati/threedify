@@ -1,11 +1,11 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "bcc267d5-f8d7-434d-a9dc-a0288594e145",
+  "id": "88b6badd-83e8-4c26-b82e-94e33ba24abd",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "todo": {
-      "name": "todo",
+    "project": {
+      "name": "project",
       "columns": {
         "id": {
           "name": "id",
@@ -28,9 +28,9 @@
           "notNull": true,
           "autoincrement": false
         },
-        "done": {
-          "name": "done",
-          "type": "integer",
+        "status": {
+          "name": "status",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -42,20 +42,13 @@
           "notNull": true,
           "autoincrement": false,
           "default": "(CURRENT_TIMESTAMP)"
-        },
-        "timestamp": {
-          "name": "timestamp",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
         }
       },
       "indexes": {},
       "foreignKeys": {
-        "todo_user_id_user_id_fk": {
-          "name": "todo_user_id_user_id_fk",
-          "tableFrom": "todo",
+        "project_user_id_user_id_fk": {
+          "name": "project_user_id_user_id_fk",
+          "tableFrom": "project",
           "tableTo": "user",
           "columnsFrom": [
             "user_id"

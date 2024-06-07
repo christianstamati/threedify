@@ -8,6 +8,7 @@ export const projects = sqliteTable("project", {
     .notNull()
     .references(() => users.id),
   name: text("name").notNull(),
+  status: text("status").notNull(),
   createdAt: text("created_at")
     .notNull()
     .default(sql`(CURRENT_TIMESTAMP)`),
