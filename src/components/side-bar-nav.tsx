@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import { navigation } from "@/lib/data";
 import { usePathname } from "next/navigation";
-import { clsx } from "clsx";
+import { cn } from "@/lib/utils";
 
 export function SideBarNav() {
   const pathname = usePathname();
@@ -19,7 +19,7 @@ export function SideBarNav() {
       <TooltipTrigger asChild>
         <Link
           href={item.link}
-          className={clsx(
+          className={cn(
             "flex h-9 w-9 items-center justify-center rounded-lg text-accent-foreground  transition-colors hover:text-foreground md:h-8 md:w-8",
             {
               "bg-accent": pathname === item.link,

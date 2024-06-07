@@ -25,7 +25,6 @@ export function BreadcrumbNav() {
       <BreadcrumbList>
         {breadcrumbPaths.map((path, index) => {
           const name = paths[index];
-
           if (index === breadcrumbPaths.length - 1) {
             return (
               <BreadcrumbItem key={index}>
