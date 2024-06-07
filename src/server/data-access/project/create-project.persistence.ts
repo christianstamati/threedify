@@ -9,7 +9,7 @@ export async function createProjectPersistence(
   const id = randomUUID();
   const [output] = await db
     .insert(projects)
-    .values({ id, ...dto })
+    .values({ id, ...dto, userId: "b023e2dc-79cd-437b-9cea-9df5c6566550" })
     .returning();
   return output;
 }

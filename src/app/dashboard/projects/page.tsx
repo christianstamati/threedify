@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/card";
 import { ProjectTable } from "@/app/dashboard/projects/project-table";
 import { getAllProjectsPersistence } from "@/server/data-access/project/get-all-projects.persistence";
+import { CreateProjectForm } from "@/app/dashboard/projects/create-project-form";
 
 export default async function Projects() {
   const projects = await getAllProjectsPersistence();
@@ -53,12 +54,7 @@ export default async function Projects() {
                 <DropdownMenuCheckboxItem>Archived</DropdownMenuCheckboxItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button size="sm" className="h-8 gap-1">
-              <PlusCircle className="h-3.5 w-3.5" />
-              <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                Add Project
-              </span>
-            </Button>
+            <CreateProjectForm />
           </div>
         </div>
         <TabsContent value="all">
