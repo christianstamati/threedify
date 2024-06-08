@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { MoreHorizontal } from "lucide-react";
 import { ProjectDto } from "@/dto/project.dto";
 import { deleteProjectAction } from "@/app/dashboard/projects/_actions/delete-project.action";
+import Link from "next/link";
 
 export function ProjectActions({ project }: { project: ProjectDto }) {
   async function handleDelete() {
@@ -33,7 +34,9 @@ export function ProjectActions({ project }: { project: ProjectDto }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-        <DropdownMenuItem>View</DropdownMenuItem>
+        <Link href={"/editor/" + project.id}>
+          <DropdownMenuItem>Open</DropdownMenuItem>
+        </Link>
         <DropdownMenuItem>Edit</DropdownMenuItem>
         <DropdownMenuItem onClick={handleDelete}>Delete</DropdownMenuItem>
       </DropdownMenuContent>

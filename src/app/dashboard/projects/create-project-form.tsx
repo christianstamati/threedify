@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/form";
 import { Input, InputProps } from "@/components/ui/input";
 import LoadingButton from "@/components/loading-button";
-import { cn, delay } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import {
   Sheet,
   SheetContent,
@@ -87,31 +87,29 @@ export function CreateProjectForm() {
             <FormField
               control={form.control}
               name="name"
-              render={({ field }) => (
+              render={({ field: { ref, ...rest } }) => (
                 <FormItem className="w-full">
                   <FormLabel className="text-primary">Name</FormLabel>
                   <FormControl>
-                    <FormInput {...field} />
+                    <FormInput {...rest} />
                   </FormControl>
                   <FormMessage className="text-xs" />
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="status"
-              render={({ field }) => (
+              render={({ field: { ref, ...rest } }) => (
                 <FormItem className="w-full">
                   <FormLabel className="text-primary">Status</FormLabel>
                   <FormControl>
-                    <FormInput {...field} />
+                    <FormInput {...rest} />
                   </FormControl>
                   <FormMessage className="text-xs" />
                 </FormItem>
               )}
             />
-
             <SheetFooter>
               <LoadingButton
                 className={"mt-6 w-full"}

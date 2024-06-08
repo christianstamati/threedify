@@ -1,21 +1,13 @@
 import Link from "next/link";
-import {
-  Home,
-  LineChart,
-  Package,
-  Package2,
-  Settings,
-  ShoppingCart,
-  Users2,
-} from "lucide-react";
+import { Package2, Settings } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { navigation } from "@/lib/data";
 import React from "react";
 import { SideBarNav } from "@/components/side-bar-nav";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export function SideBar() {
   return (
@@ -31,6 +23,7 @@ export function SideBar() {
         <SideBarNav />
       </nav>
       <nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
+        <ModeToggle />
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
