@@ -12,7 +12,7 @@
     "migrations:drop": "drizzle-kit drop",
     "db:push": "drizzle-kit push",
     "studio": "drizzle-kit studio",
-    "turso": "turso dev --db-file dev.db"
+    "turso": "turso dev --db-file local.db"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.2.0",
