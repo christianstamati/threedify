@@ -3,5 +3,5 @@ import { db } from "@/server/db";
 import { UserDto } from "@/dto/user.dto";
 import { users } from "@/server/db/schema/users";
 export async function getAllUsersPersistence(): Promise<UserDto[]> {
-  return await db.select().from(users).all();
+  return db.select().from(users).all();
 }

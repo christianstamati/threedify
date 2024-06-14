@@ -3,12 +3,13 @@ import { ProjectDto } from "@/dto/project.dto";
 import { db } from "@/server/db";
 import { projects } from "@/server/db/schema/projects";
 import { sql } from "drizzle-orm";
+
 export async function deleteProjectPersistence(
   id: string,
 ): Promise<ProjectDto | undefined> {
-  const [output] = await db
+  return db
     .delete(projects)
     .where(sql`${projects.id} = ${id}`)
-    .returning();
-  return output;
+    .returning()
+    .then((x) => x[0]);
 }

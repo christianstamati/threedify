@@ -3,7 +3,9 @@ import { users } from "@/server/db/schema/users";
 import { sql } from "drizzle-orm";
 
 export const projects = sqliteTable("project", {
-  id: text("id").notNull().primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   userId: text("user_id")
     .notNull()
     .references(() => users.id),

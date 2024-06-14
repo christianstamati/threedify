@@ -1,9 +1,11 @@
 import { text, sqliteTable, AnySQLiteColumn } from "drizzle-orm/sqlite-core";
-import { relations, sql } from "drizzle-orm";
+import { sql } from "drizzle-orm";
 import { projects } from "@/server/db/schema/projects";
 
 export const folders = sqliteTable("folder", {
-  id: text("id").notNull().primaryKey(),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
   parentId: text("parent_id").references((): AnySQLiteColumn => folders.id),
   projectId: text("project_id")
     .notNull()
@@ -14,9 +16,11 @@ export const folders = sqliteTable("folder", {
     .default(sql`(CURRENT_TIMESTAMP)`),
 });
 
+/*
 export const foldersRelations = relations(folders, ({ one }) => ({
   parent: one(folders, {
     fields: [folders.parentId],
     references: [folders.id],
   }),
 }));
+*/

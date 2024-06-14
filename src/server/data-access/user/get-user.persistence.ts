@@ -10,5 +10,5 @@ export async function getUserPersistence(
     .select()
     .from(users)
     .where(sql`${users.id} = ${id}`)
-    .get();
+    .then((x) => x[0]);
 }

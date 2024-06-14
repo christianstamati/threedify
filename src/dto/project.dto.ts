@@ -9,6 +9,7 @@ export type ProjectDto = {
 export type CreateProjectDto = {
   name: string;
   status: string;
+  userId: string;
 };
 
 export type UpdateProjectDto = {
