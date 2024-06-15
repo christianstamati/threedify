@@ -40,6 +40,8 @@ function AssetItem({ name, type = "file" }: { name: string; type?: string }) {
 }
 
 export default function AssetManagerDev() {
+  // project ID
+
   return (
     <div className="h-screen w-full p-1">
       <Card className="flex flex-col gap-y-2 p-2">
