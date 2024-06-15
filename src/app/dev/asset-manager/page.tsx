@@ -1,4 +1,4 @@
-import { Ellipsis, File, Folder, Plus } from "lucide-react";
+import { Ellipsis, File, Folder } from "lucide-react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,16 +7,25 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Card } from "@/components/ui/card";
+import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-all-project-assets.persistence";
+import { UploadAssetsForm } from "@/app/dev/asset-manager/upload-assets-form";
+import { DeleteAssetDropdown } from "@/app/dev/asset-manager/delete-asset-item";
 
-function AssetItem({ name, type = "file" }: { name: string; type?: string }) {
+function AssetItem({
+  name,
+  type = "file",
+  id,
+}: {
+  name: string;
+  type?: string;
+  id: string;
+}) {
   return (
     <div className="group flex cursor-pointer justify-between rounded-sm p-1 pl-2 hover:bg-primary/10 active:bg-primary/10">
       <div className="flex">
@@ -32,15 +41,16 @@ function AssetItem({ name, type = "file" }: { name: string; type?: string }) {
           <Ellipsis size={21} className="mr-2 hidden group-hover:block" />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>Delete</DropdownMenuItem>
+          <DeleteAssetDropdown id={id} />
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
   );
 }
 
-export default function AssetManagerDev() {
-  // project ID
+export default async function AssetManagerDev() {
+  const projectId = 1 + "";
+  const assets = await getAllProjectAssetsPersistence(projectId);
 
   return (
     <div className="h-screen w-full p-1">
@@ -62,18 +72,13 @@ export default function AssetManagerDev() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="flex gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              className="h-fit w-fit gap-1 p-1 text-sm"
-            >
-              <Plus size={18} />
-              <span className="sr-only">Add File</span>
-            </Button>
+            <UploadAssetsForm projectId={projectId} />
           </div>
         </div>
         <div className="flex h-[300px] flex-col gap-1">
-          <AssetItem name={"stuff.fbx"} />
+          {assets?.map((x, index) => (
+            <AssetItem key={index} id={x.id} name={x.name} />
+          ))}
         </div>
       </Card>
     </div>
