@@ -17,10 +17,10 @@ export const folders = sqliteTable("folder", {
 });
 
 /*
-export const foldersRelations = relations(folders, ({ one }) => ({
-  parent: one(folders, {
-    fields: [folders.parentId],
-    references: [folders.id],
+export const foldersRelations = relations(asset-manager, ({ one }) => ({
+  parent: one(asset-manager, {
+    fields: [asset-manager.parentId],
+    references: [asset-manager.id],
   }),
 }));
 */
