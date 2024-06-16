@@ -16,5 +16,5 @@ export async function uploadFilesAction(form: FormData): Promise<void> {
     });
   }
 
-  revalidatePath("/dev/asset-manager");
+  revalidatePath("/dev/editor");
 }

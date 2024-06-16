@@ -6,12 +6,17 @@ export class Editor {
   private camera: THREE.PerspectiveCamera;
   private renderer: THREE.WebGLRenderer;
   private animateId: number | null = null;
+  private element: HTMLElement | null = null;
 
-  constructor() {
+  constructor(element: HTMLDivElement) {
+    this.element = element;
+
+    const { clientWidth, clientHeight } = this.element;
+
     // Renderer
     this.renderer = new THREE.WebGLRenderer();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(this.renderer.domElement);
+    this.renderer.setSize(clientWidth, clientHeight);
+    this.element.appendChild(this.renderer.domElement);
 
     // Scene
     this.scene = new THREE.Scene();
@@ -29,7 +34,7 @@ export class Editor {
     // Camera
     this.camera = new THREE.PerspectiveCamera(
       75,
-      window.innerWidth / window.innerHeight,
+      clientWidth / clientHeight,
       0.1,
       1000,
     );
@@ -67,14 +72,14 @@ export class Editor {
     // Start animation
     this.animate();
 
-    // Add resize event listener
     window.addEventListener("resize", this.onWindowResize.bind(this));
   }
 
   private onWindowResize(): void {
-    this.camera.aspect = window.innerWidth / window.innerHeight;
+    const { clientWidth, clientHeight } = this.element!;
+    this.camera.aspect = clientWidth / clientHeight;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(clientWidth, clientHeight);
   }
 
   private render(): void {

@@ -4,5 +4,5 @@ import { deleteAssetPersistence } from "@/server/data-access/asset/delete-asset.
 
 export async function deleteAssetAction(id: string): Promise<void> {
   await deleteAssetPersistence(id);
-  revalidatePath("/dev/asset-manager");
+  revalidatePath("/dev/editor");
 }
