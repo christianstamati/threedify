@@ -5,13 +5,14 @@ import { cn } from "@/lib/utils";
 
 export function EditorComponent({ className }: { className?: string }) {
   const containerRef = useRef(null);
+
   useEffect(() => {
     const container = containerRef.current!;
     const editor = new Editor(container);
     return () => {
       editor.clear();
     };
-  });
+  }, [containerRef]);
   return (
     <div ref={containerRef} className={cn("h-full w-full", className)}></div>
   );
