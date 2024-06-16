@@ -12,7 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { uploadFilesAction } from "@/app/dev/asset-manager/_actions/upload-files.action";
+import { uploadFilesAction } from "@/app/dev/editor/_actions/upload-files.action";
 
 export function UploadAssetsForm({ projectId }: { projectId: string }) {
   return (

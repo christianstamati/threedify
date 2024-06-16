@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Card } from "@/components/ui/card";
 import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-all-project-assets.persistence";
-import { UploadAssetsForm } from "@/app/dev/asset-manager/upload-assets-form";
+import { UploadAssetsForm } from "@/app/dev/editor/upload-assets-form";
 import { AssetItem } from "@/components/asset-item";
 
 export default async function AssetManagerDev() {

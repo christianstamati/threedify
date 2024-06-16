@@ -1,4 +1,4 @@
-import { EditorComponent } from "@/app/dev/editor/editor-component";
+import { Editor } from "@/app/dev/editor/editor";
 
 export default function RootLayout({
   children,
@@ -7,7 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <div className="h-screen">
-      <EditorComponent className="h-full w-full" />
+      <Editor />
       {children}
     </div>
   );

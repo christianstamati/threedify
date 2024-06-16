@@ -8,7 +8,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { UploadAssetsForm } from "@/app/dev/asset-manager/upload-assets-form";
+import { UploadAssetsForm } from "@/app/dev/editor/upload-assets-form";
 import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-all-project-assets.persistence";
 import { AssetItem } from "@/components/asset-item";
 
