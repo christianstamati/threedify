@@ -16,7 +16,7 @@ export default async function EditorPage() {
   const projectId = 1 + "";
   const assets = await getAllProjectAssetsPersistence(projectId);
   return (
-    <Card className="fixed bottom-2 left-2 top-2 flex w-[300px] flex-col gap-y-2 rounded-sm p-2">
+    <Card className="fixed bottom-2 left-2 top-2 flex hidden w-[300px] flex-col gap-y-2 rounded-sm p-2">
       <div className="flex justify-between">
         <Breadcrumb className="hidden">
           <BreadcrumbList>
