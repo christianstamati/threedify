@@ -7,7 +7,6 @@ jiti("./src/env");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['three'],
   images: {
     remotePatterns: [
       {
