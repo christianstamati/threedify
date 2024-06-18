@@ -13,6 +13,7 @@ import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-a
 import { AssetItem } from "@/components/asset-item";
 
 export default async function EditorPage() {
+  return null;
   const projectId = 1 + "";
   const assets = await getAllProjectAssetsPersistence(projectId);
   return (
