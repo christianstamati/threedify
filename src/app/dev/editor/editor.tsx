@@ -1,16 +1,16 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 import {
-  AccumulativeShadows,
   Center,
   Environment,
+  Grid,
   OrbitControls,
-  RandomizedLight,
+  SoftShadows,
   TransformControls,
   useCursor,
 } from "@react-three/drei";
 import { useControls } from "leva";
-import { useEffect, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { create } from "zustand";
 
 const useStore = create<{ target: any; setTarget: (target: any) => void }>(
@@ -20,7 +20,7 @@ const useStore = create<{ target: any; setTarget: (target: any) => void }>(
   }),
 );
 
-function Sphere() {
+function Box(props: any) {
   const setTarget = useStore((state) => state.setTarget);
   const [hovered, setHovered] = useState(false);
   useCursor(hovered);
@@ -31,18 +31,25 @@ function Sphere() {
   return (
     <Center top>
       <mesh
+        {...props}
         castShadow
-        onClick={(e) => {
-          console.log(e);
-          setTarget(e.object);
-        }}
+        onClick={(e) => setTarget(e.object)}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
-        <sphereGeometry args={[0.75, 64, 64]} />
+        <boxGeometry />
         <meshStandardMaterial metalness={1} roughness={roughness} />
       </mesh>
     </Center>
+  );
+}
+
+function ShadowPlane() {
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]} receiveShadow>
+      <planeGeometry args={[100, 100]} />
+      <shadowMaterial transparent opacity={0.4} />
+    </mesh>
   );
 }
 
@@ -87,36 +94,32 @@ export function Editor() {
   return (
     <Canvas
       shadows
-      camera={{ position: [0, 0, 4.5], fov: 50 }}
+      camera={{ position: [-3.5, 2, 3.5], fov: 60 }}
       onPointerMissed={() => setTarget(null)}
     >
-      <group position={[0, -0.65, 0]}>
-        <Sphere />
-        <AccumulativeShadows
-          temporal
-          frames={200}
-          color="purple"
-          colorBlend={0.5}
-          opacity={1}
-          scale={10}
-          alphaTest={0.85}
-        >
-          <RandomizedLight
-            amount={8}
-            radius={5}
-            ambient={0.5}
-            position={[5, 3, 2]}
-            bias={0.001}
-          />
-        </AccumulativeShadows>
-      </group>
+      <SoftShadows />
+      <Grid scale={10} cellSize={0.1} />
+      <directionalLight
+        castShadow
+        position={[2.5, 8, 5]}
+        intensity={1.5}
+        shadow-mapSize={1024}
+      >
+        <orthographicCamera
+          attach="shadow-camera"
+          args={[-10, 10, -10, 10, 0.1, 50]}
+        />
+      </directionalLight>
       <Env />
 
       {target && ( // @ts-ignore
         <TransformControls object={target} mode={mode} />
       )}
-
       <OrbitControls makeDefault />
+      <group position={[0, 0, 0]}>
+        <Box position={[0, 0, 0]} />
+        <ShadowPlane />
+      </group>
     </Canvas>
   );
 }
