@@ -4,7 +4,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { DeleteAssetDropdown } from "@/app/dev/editor/delete-asset-item";
+import { DeleteAssetDropdown } from "@/components/delete-asset-item";
 
 export function AssetItem({
   name,

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import {
   Breadcrumb,
@@ -8,12 +7,20 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { UploadAssetsForm } from "@/app/dev/editor/upload-assets-form";
+import { UploadAssetsForm } from "@/components/upload-assets-form";
 import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-all-project-assets.persistence";
 import { AssetItem } from "@/components/asset-item";
+import { Editor } from "@/app/dev/editor/editor";
 
-export default async function EditorPage() {
-  return null;
+export default function EditorPage() {
+  return (
+    <div className="h-svh">
+      <Editor />
+    </div>
+  );
+}
+
+export async function EditorPageOld() {
   const projectId = 1 + "";
   const assets = await getAllProjectAssetsPersistence(projectId);
   return (

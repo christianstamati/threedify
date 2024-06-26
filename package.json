@@ -48,7 +48,8 @@
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.165.0",
     "zod": "^3.23.8",
-    "zsa": "^0.4.0"
+    "zsa": "^0.4.0",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",
