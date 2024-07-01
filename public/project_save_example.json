@@ -1,0 +1,250 @@
+{
+    "metadata":
+    {},
+    "project":
+    {
+        "shadows": true,
+        "shadowType": 1,
+        "toneMapping": 0,
+        "toneMappingExposure": 1
+    },
+    "camera":
+    {
+        "metadata":
+        {
+            "version": 4.6,
+            "type": "Object",
+            "generator": "Object3D.toJSON"
+        },
+        "object":
+        {
+            "uuid": "70327d56-2ee0-4ac0-8480-a8d4ded28e7b",
+            "type": "PerspectiveCamera",
+            "name": "Camera",
+            "layers": 1,
+            "matrix":
+            [
+                -0.9836111509736758,
+                -6.938893903907228E-18,
+                -0.1803028110713782,
+                0,
+                -0.05799264147775357,
+                0.9468619480639047,
+                0.31636893786062525,
+                0,
+                0.17072187093244334,
+                0.3216402513813025,
+                -0.9313439705483142,
+                0,
+                2.6649608533216664,
+                9.757619726735651,
+                -17.477779867163164,
+                1
+            ],
+            "up":
+            [
+                0,
+                1,
+                0
+            ],
+            "fov": 50,
+            "zoom": 1,
+            "near": 0.01,
+            "far": 1000,
+            "focus": 10,
+            "aspect": 1.5669745958429562,
+            "filmGauge": 35,
+            "filmOffset": 0
+        }
+    },
+    "scene":
+    {
+        "metadata":
+        {
+            "version": 4.6,
+            "type": "Object",
+            "generator": "Object3D.toJSON"
+        },
+        "geometries":
+        [
+            {
+                "uuid": "cea9b371-f210-4dd6-a15d-e017e52e0ab2",
+                "type": "BoxGeometry",
+                "width": 1,
+                "height": 1,
+                "depth": 1,
+                "widthSegments": 1,
+                "heightSegments": 1,
+                "depthSegments": 1
+            }
+        ],
+        "materials":
+        [
+            {
+                "uuid": "0907fa20-d5e2-4af9-a6af-150ab64248a8",
+                "type": "MeshStandardMaterial",
+                "color": 16777215,
+                "roughness": 1,
+                "metalness": 0,
+                "emissive": 0,
+                "envMapRotation":
+                [
+                    0,
+                    0,
+                    0,
+                    "XYZ"
+                ],
+                "envMapIntensity": 1,
+                "blendColor": 0
+            }
+        ],
+        "object":
+        {
+            "uuid": "cbcb3b49-8119-4bf3-a67d-cc09a340d6ab",
+            "type": "Scene",
+            "name": "Scene",
+            "layers": 1,
+            "matrix":
+            [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "up":
+            [
+                0,
+                1,
+                0
+            ],
+            "children":
+            [
+                {
+                    "uuid": "dea1ff4d-4be6-41c3-863d-8d2d35cc1af5",
+                    "type": "Mesh",
+                    "name": "Box",
+                    "layers": 1,
+                    "matrix":
+                    [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0.04652332327094075,
+                        -0.008801984038825011,
+                        -0.04539053974202756,
+                        1
+                    ],
+                    "up":
+                    [
+                        0,
+                        1,
+                        0
+                    ],
+                    "geometry": "cea9b371-f210-4dd6-a15d-e017e52e0ab2",
+                    "material": "0907fa20-d5e2-4af9-a6af-150ab64248a8"
+                },
+                {
+                    "uuid": "a85ffdaf-15ad-4eb4-8956-9f3f3da42c94",
+                    "type": "DirectionalLight",
+                    "name": "DirectionalLight",
+                    "layers": 1,
+                    "matrix":
+                    [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        5,
+                        10,
+                        7.5,
+                        1
+                    ],
+                    "up":
+                    [
+                        0,
+                        1,
+                        0
+                    ],
+                    "color": 16777215,
+                    "intensity": 1,
+                    "shadow":
+                    {
+                        "camera":
+                        {
+                            "uuid": "a80a4a3a-a2f5-4767-9994-2b50492e9e13",
+                            "type": "OrthographicCamera",
+                            "layers": 1,
+                            "up":
+                            [
+                                0,
+                                1,
+                                0
+                            ],
+                            "zoom": 1,
+                            "left": -5,
+                            "right": 5,
+                            "top": 5,
+                            "bottom": -5,
+                            "near": 0.5,
+                            "far": 500
+                        }
+                    },
+                    "target": "5522bf80-11f7-489d-bec3-bde2e6c5678c"
+                }
+            ],
+            "backgroundRotation":
+            [
+                0,
+                0,
+                0,
+                "XYZ"
+            ],
+            "environmentRotation":
+            [
+                0,
+                0,
+                0,
+                "XYZ"
+            ]
+        }
+    },
+    "scripts":
+    {},
+    "history":
+    {
+        "undos":
+        [],
+        "redos":
+        []
+    },
+    "environment": null
+}

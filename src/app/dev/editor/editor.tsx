@@ -49,12 +49,6 @@ function ShadowPlane() {
   );
 }
 
-function Env() {
-  return (
-    <Environment preset={"sunset"} background backgroundBlurriness={0.65} />
-  );
-}
-
 export function Editor() {
   const { target, setTarget } = useStore();
 
@@ -81,7 +75,7 @@ export function Editor() {
           args={[-10, 10, -10, 10, 0.1, 50]}
         />
       </directionalLight>
-      <Env />
+      <Environment preset={"sunset"} background backgroundBlurriness={0.65} />
 
       {target && ( // @ts-ignore
         <TransformControls object={target} mode={mode} />
