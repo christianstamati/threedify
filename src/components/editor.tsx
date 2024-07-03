@@ -10,7 +10,7 @@ import {
 } from "@react-three/drei";
 import { useState } from "react";
 import { create } from "zustand";
-import { MeshComponent } from "@/components/mesh-component";
+import { MeshComponent, MeshComponentV2 } from "@/components/mesh-component";
 import { Button } from "@/components/ui/button";
 import logger from "@/logger";
 
@@ -71,9 +71,7 @@ export function Editor() {
         <OrbitControls makeDefault />
 
         <Center top>
-          <MeshComponent castShadow src="/static/models/cube_ascii.ply">
-            <meshPhysicalMaterial roughness={0.8} metalness={1} />
-          </MeshComponent>
+          <MeshComponentV2 src="/static/models/duck.glb"></MeshComponentV2>
         </Center>
         <ShadowPlane />
       </Canvas>
