@@ -10,8 +10,9 @@ import {
 } from "@react-three/drei";
 import { useState } from "react";
 import { create } from "zustand";
-import { MeshComponent } from "@/app/dev/editor/mesh-component";
+import { MeshComponent } from "@/components/mesh-component";
 import { Button } from "@/components/ui/button";
+import logger from "@/logger";
 
 const useStore = create<{ target: any; setTarget: (target: any) => void }>(
   (set) => ({
@@ -74,7 +75,7 @@ export function Editor() {
       <div className="absolute left-0 top-0 z-50">
         <Button
           onClick={() => {
-            logger.log("INFOOOOO");
+            logger.info("DEBUG");
           }}
         >
           PRINT

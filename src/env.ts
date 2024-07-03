@@ -12,8 +12,11 @@ export const env = createEnv({
     DATABASE_URL: z.string().url(),
     DATABASE_AUTH_TOKEN: z.string(),
   },
-
   // For Next.js >= 13.4.4, you only need to destructure client variables:
-  client: {},
-  experimental__runtimeEnv: {},
+  client: {
+    NEXT_PUBLIC_LOG_LEVEL: z.string(),
+  },
+  experimental__runtimeEnv: {
+    NEXT_PUBLIC_LOG_LEVEL: process.env.NEXT_PUBLIC_LOG_LEVEL,
+  },
 });

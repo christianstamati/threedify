@@ -19,7 +19,7 @@ export function useLoader(src: string) {
       default:
         throw new Error("Extension " + extension + " is not supported");
     }
-  }, [src]);
+  }, [extension]);
   const loadedModel = useThreeLoader(Loader, src);
   const object = loadedModel instanceof Group ? loadedModel : loadedModel.scene;
   return { object };

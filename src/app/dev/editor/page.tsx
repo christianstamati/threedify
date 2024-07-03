@@ -10,7 +10,8 @@ import {
 import { UploadAssetsForm } from "@/components/upload-assets-form";
 import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-all-project-assets.persistence";
 import { AssetItem } from "@/components/asset-item";
-import { Editor } from "@/app/dev/editor/editor";
+import { Editor } from "@/components/editor";
+import logger from "@/logger";
 
 export default function EditorPage() {
   return (
@@ -20,7 +21,7 @@ export default function EditorPage() {
   );
 }
 
-export async function EditorPageOld() {
+async function EditorPageOld() {
   const projectId = 1 + "";
   const assets = await getAllProjectAssetsPersistence(projectId);
   return (
