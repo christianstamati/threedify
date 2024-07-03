@@ -11,7 +11,6 @@ import { UploadAssetsForm } from "@/components/upload-assets-form";
 import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-all-project-assets.persistence";
 import { AssetItem } from "@/components/asset-item";
 import { Editor } from "@/components/editor";
-import logger from "@/logger";
 
 export default function EditorPage() {
   return (
