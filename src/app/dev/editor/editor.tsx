@@ -58,11 +58,7 @@ export function Editor() {
   });
 
   return (
-    <Canvas
-      shadows
-      camera={{ position: [-3.5, 2, 3.5], fov: 60 }}
-      onPointerMissed={() => setTarget(null)}
-    >
+    <Canvas shadows camera={{ position: [-3.5, 2, 3.5], fov: 60 }}>
       <SoftShadows />
       <Grid scale={10} cellSize={0.1} />
       <directionalLight
@@ -82,7 +78,7 @@ export function Editor() {
         <TransformControls object={target} mode={mode} />
       )}
       <OrbitControls makeDefault />
-      <MeshComponent src="" />
+      <MeshComponent src="/static/models/duck.glb" />
     </Canvas>
   );
 }
