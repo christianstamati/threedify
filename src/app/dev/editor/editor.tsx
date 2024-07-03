@@ -12,6 +12,7 @@ import {
 import { useControls } from "leva";
 import { useState } from "react";
 import { create } from "zustand";
+import { MeshComponent } from "@/app/dev/editor/mesh-component";
 
 const useStore = create<{ target: any; setTarget: (target: any) => void }>(
   (set) => ({
@@ -81,10 +82,7 @@ export function Editor() {
         <TransformControls object={target} mode={mode} />
       )}
       <OrbitControls makeDefault />
-      <group position={[0, 0, 0]}>
-        <Box position={[0, 0, 0]} />
-        <ShadowPlane />
-      </group>
+      <MeshComponent src="" />
     </Canvas>
   );
 }
