@@ -3,6 +3,15 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import Logger from "@/lib/logger";
+import jsLogger from "js-logger";
+
+declare global {
+  interface Window {
+    logger: typeof jsLogger;
+  }
+  let logger: typeof jsLogger;
+}
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -19,6 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Logger />
       <body className={`font-sans ${inter.variable}`}>
         <ThemeProvider
           attribute="class"

@@ -7,7 +7,6 @@ import { Group } from "three";
 
 export function useLoader(src: string) {
   const extension = src.split(".").pop();
-  console.log(`Loading model with extension ${extension}`);
   const Loader = useMemo(() => {
     switch (extension) {
       case "glb":

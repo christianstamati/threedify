@@ -6,7 +6,7 @@ type Props = {
 export function MeshComponent(props: Props) {
   const { object } = useLoader(props.src);
   return (
-    <Center>
+    <Center top>
       <primitive object={object}></primitive>
     </Center>
   );
