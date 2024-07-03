@@ -69,7 +69,13 @@ export function Editor() {
         </directionalLight>
         <Environment preset={"sunset"} background backgroundBlurriness={0.65} />
         <OrbitControls makeDefault />
-        <MeshComponent src="/static/models/duck.glb" />
+
+        <Center top>
+          <MeshComponent castShadow src="/static/models/cube_ascii.ply">
+            <meshPhysicalMaterial roughness={0.8} metalness={1} />
+          </MeshComponent>
+        </Center>
+        <ShadowPlane />
       </Canvas>
 
       <div className="absolute left-0 top-0 z-50">
