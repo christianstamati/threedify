@@ -10,12 +10,14 @@ import {
 import { UploadAssetsForm } from "@/components/upload-assets-form";
 import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-all-project-assets.persistence";
 import { AssetItem } from "@/components/asset-item";
-import { Editor } from "@/components/editor";
+import { Scene } from "@/app/dev/editor/scene";
+import Assets from "@/app/dev/editor/assets";
 
 export default function EditorPage() {
   return (
-    <div className="h-svh">
-      <Editor />
+    <div className="flex h-svh flex-col">
+      <Scene />
+      <Assets />
     </div>
   );
 }
