@@ -26,8 +26,8 @@ function Assets() {
       <Button
         onClick={() => {
           add({
-            id: "12345",
-            name: "cube.glb",
+            id: "123",
+            name: "duck.glb",
             path: "/static/models/duck.glb",
             position: [0, 0, 0],
             rotation: [0, 0, 0],
