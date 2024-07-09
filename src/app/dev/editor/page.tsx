@@ -10,14 +10,12 @@ import {
 import { UploadAssetsForm } from "@/components/upload-assets-form";
 import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-all-project-assets.persistence";
 import { AssetItem } from "@/components/asset-item";
-import { Scene } from "@/app/dev/editor/scene";
-import Assets from "@/app/dev/editor/assets";
+import { ThreeCanvas } from "@/components/three-canvas";
 
 export default function EditorPage() {
   return (
     <div className="flex h-svh flex-col">
-      <Scene />
-      <Assets />
+      <ThreeCanvas />
     </div>
   );
 }
