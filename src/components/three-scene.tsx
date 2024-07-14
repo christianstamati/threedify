@@ -2,9 +2,10 @@
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 import { useSceneStore } from "@/store/scene-store";
+import { OrbitControls } from "@react-three/drei";
 
-export function ThreeCanvas() {
-  const objects = useSceneStore((state) => state.objects);
+export function ThreeScene() {
+  const scene = useSceneStore((state) => state.scene);
   const renderElement = (element: any) => {
     const { type, props, children } = element;
     return React.createElement(
@@ -15,7 +16,8 @@ export function ThreeCanvas() {
   };
   return (
     <Canvas shadows camera={{ position: [-3.5, 2, 3.5], fov: 60 }}>
-      {objects.map((element, index) => (
+      <OrbitControls makeDefault />
+      {scene.map((element, index) => (
         <React.Fragment key={index}>{renderElement(element)}</React.Fragment>
       ))}
     </Canvas>
