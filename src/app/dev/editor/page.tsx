@@ -1,3 +1,4 @@
+"use client";
 import { Card } from "@/components/ui/card";
 import {
   Breadcrumb,
@@ -10,20 +11,32 @@ import {
 import { UploadAssetsForm } from "@/components/upload-assets-form";
 import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-all-project-assets.persistence";
 import { AssetItem } from "@/components/asset-item";
-import { ThreeScene } from "@/components/three-scene";
+import { Scene } from "@/components/scene";
+import { folder, useControls } from "leva";
 
 export default function EditorPage() {
+  const { name, aNumber } = useControls({ name: "World", aNumber: 0 });
+  const { barValue } = useControls({ barValue: false });
+  const { showLighting, showStats } = useControls("My folder", {
+    lighting: folder({
+      showLighting: true,
+    }),
+    "Show stats": folder({
+      showStats: false,
+    }),
+  });
   return (
     <div className="flex h-svh flex-col">
-      <ThreeScene />
-      <div className="bg-red-500">PANEL</div>
+      <Scene />
+      <div>{name}</div>
+      <div>{barValue.toString()}</div>
     </div>
   );
 }
 
-async function EditorPageOld() {
+function EditorPageOld() {
   const projectId = 1 + "";
-  const assets = await getAllProjectAssetsPersistence(projectId);
+  //const assets = await getAllProjectAssetsPersistence(projectId);
   return (
     <Card className="fixed bottom-2 left-2 top-2 flex hidden w-[300px] flex-col gap-y-2 rounded-sm p-2">
       <div className="flex justify-between">
@@ -48,9 +61,9 @@ async function EditorPageOld() {
         </div>
       </div>
       <div className="flex h-[300px] flex-col gap-1">
-        {assets?.map((x, index) => (
-          <AssetItem key={index} id={x.id} name={x.name} />
-        ))}
+        {/*{assets?.map((x, index) => (*/}
+        {/*  <AssetItem key={index} id={x.id} name={x.name} />*/}
+        {/*))}*/}
       </div>
     </Card>
   );
