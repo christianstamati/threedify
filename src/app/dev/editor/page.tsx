@@ -9,27 +9,19 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { UploadAssetsForm } from "@/components/upload-assets-form";
-import { getAllProjectAssetsPersistence } from "@/server/data-access/asset/get-all-project-assets.persistence";
-import { AssetItem } from "@/components/asset-item";
 import { Scene } from "@/components/scene";
 import { folder, useControls } from "leva";
+import { useBearStore } from "@/stores/bear-store";
 
 export default function EditorPage() {
+  const store = useBearStore();
+
   const { name, aNumber } = useControls({ name: "World", aNumber: 0 });
-  const { barValue } = useControls({ barValue: false });
-  const { showLighting, showStats } = useControls("My folder", {
-    lighting: folder({
-      showLighting: true,
-    }),
-    "Show stats": folder({
-      showStats: false,
-    }),
-  });
+
   return (
     <div className="flex h-svh flex-col">
       <Scene />
       <div>{name}</div>
-      <div>{barValue.toString()}</div>
     </div>
   );
 }
