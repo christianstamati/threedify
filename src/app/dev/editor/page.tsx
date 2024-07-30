@@ -1,4 +1,10 @@
-"use client";
-export default function Editor() {
-  return <div className="flex h-svh flex-col"></div>;
+import React from "react";
+import { Editor } from "@/components/editor";
+
+export default function EditorPage() {
+  return (
+    <div className="flex h-svh flex-col">
+      <Editor />
+    </div>
+  );
 }
